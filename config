@@ -1,0 +1,8 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[user]
+	name = Sistema Cadastro Dev
+	email = dev@sistema-cadastro.com
