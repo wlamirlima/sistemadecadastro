@@ -1,6 +1,8 @@
 # Sistema de Cadastro de Itens por Departamento
-
 Sistema completo para gerenciamento de itens organizados por departamentos, desenvolvido com Laravel 11 (back-end) e Vue 3 (front-end).
+
+<img width="1064" height="772" alt="image" src="https://github.com/user-attachments/assets/1b564460-03e5-4846-8abc-b47684817dd9" />
+
 
 ## 🚀 Tecnologias Utilizadas
 
