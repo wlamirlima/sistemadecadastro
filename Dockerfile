@@ -1,40 +1,32 @@
-FROM php:8.1-fpm
-
-# Instalar dependências do sistema
-RUN apt-get update && apt-get install -y \
-    git \
-    curl \
-    libpng-dev \
-    libonig-dev \
-    libxml2-dev \
-    zip \
-    unzip \
-    mariadb-client \
-    && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
-
-# Instalar Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+FROM node:20-alpine
 
 # Definir diretório de trabalho
-WORKDIR /var/www
+WORKDIR /app
 
-# Copiar arquivos do projeto
+# Copiar arquivos de dependências
+COPY package*.json ./
+
+# Instalar dependências
+RUN npm ci --only=production
+
+# Copiar código fonte
 COPY . .
 
-# Copiar arquivo de ambiente para Docker
-COPY .env.docker .env
+# Build da aplicação
+RUN npm run build
 
-# Instalar dependências do PHP
-RUN composer install --no-dev --optimize-autoloader
+# Usar nginx para servir os arquivos estáticos
+FROM nginx:alpine
 
-# Definir permissões
-RUN chown -R www-data:www-data /var/www \
-    && chmod -R 755 /var/www/storage \
-    && chmod -R 755 /var/www/bootstrap/cache
+# Copiar arquivos buildados
+COPY --from=0 /app/dist /usr/share/nginx/html
+
+# Copiar configuração do nginx
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expor porta
-EXPOSE 8000
+EXPOSE 80
 
-# Comando para iniciar o servidor
-CMD php artisan serve --host=0.0.0.0 --port=8000
+# Comando para iniciar o nginx
+CMD ["nginx", "-g", "daemon off;"]
 
