@@ -1,35 +1,89 @@
-# frontend
+# Sistema de Cadastro de Itens por Departamento
 
-This template should help get you started developing with Vue 3 in Vite.
+Sistema completo para gerenciamento de itens organizados por departamentos, desenvolvido com Laravel 11 (back-end) e Vue 3 (front-end).
 
-## Recommended IDE Setup
+## 🚀 Tecnologias Utilizadas
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+### Back-end
 
-## Customize configuration
+- **PHP 8.1+**
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+- **Laravel 11** - Framework PHP
 
-## Project Setup
+- **MySQL/MariaDB** - Banco de dados
 
-```sh
-npm install
-```
+- **PHPUnit** - Testes unitários
 
-### Compile and Hot-Reload for Development
+- **PHPStan/Larastan** - Análise estática de código (nível 7)
 
-```sh
-npm run dev
-```
+### Front-end
 
-### Compile and Minify for Production
+- **Vue 3** - Framework JavaScript
 
-```sh
-npm run build
-```
+- **Vite** - Build tool
 
-### Lint with [ESLint](https://eslint.org/)
+- **Axios** - Cliente HTTP
 
-```sh
-npm run lint
-```
+- **CSS3** - Estilização responsiva
+
+### DevOps
+
+- **Docker** - Containerização
+
+- **Docker Compose** - Orquestração de containers
+
+- **Nginx** - Servidor web para produção
+
+## 📋 Funcionalidades
+
+### CRUD Departamentos
+
+- ✅ Criar departamentos
+
+- ✅ Listar departamentos
+
+- ✅ Editar departamentos
+
+- ✅ Excluir departamentos
+
+- ✅ Ativar/Desativar departamentos
+
+### CRUD Itens
+
+- ✅ Criar itens associados a departamentos
+
+- ✅ Listar itens com informações do departamento
+
+- ✅ Editar itens
+
+- ✅ Excluir itens
+
+- ✅ Controle de estoque (quantidade)
+
+- ✅ Controle de preços
+
+- ✅ Ativar/Desativar itens
+
+### Dashboard
+
+- ✅ Estatísticas gerais do sistema
+
+- ✅ Total de departamentos e itens
+
+- ✅ Valor total em estoque
+
+- ✅ Itens ativos
+
+## 🛠️ Instalação e Configuração
+
+### Pré-requisitos
+
+- PHP 8.1 ou superior
+
+- Composer
+
+- Node.js 18+ e npm
+
+- MySQL/MariaDB
+
+- Docker e Docker Compose (opcional)
