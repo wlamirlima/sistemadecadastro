@@ -1,0 +1,26 @@
+includes:
+    - ./vendor/larastan/larastan/extension.neon
+
+parameters:
+    level: 7
+    paths:
+        - app/
+        - routes/
+        - database/
+    
+    # Ignorar alguns erros comuns do Laravel
+    ignoreErrors:
+        - '#Call to an undefined method Illuminate\\Database\\Eloquent\\Builder#'
+        - '#Call to an undefined method Illuminate\\Database\\Query\\Builder#'
+    
+    # Configurações específicas do Laravel
+    checkMissingIterableValueType: false
+    checkGenericClassInNonGenericObjectType: false
+    
+    # Excluir arquivos de migração e seeders da análise mais rigorosa
+    excludePaths:
+        - database/migrations/*
+        - database/seeders/*
+        - bootstrap/cache/*
+        - storage/*
+
